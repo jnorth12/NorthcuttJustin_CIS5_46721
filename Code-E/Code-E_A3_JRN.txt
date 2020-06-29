@@ -1,0 +1,44 @@
+/* 
+ * Author: Justin Northcutt
+ * Date: 06/28/2020
+ * Purpose:
+ */
+
+//System Libraries Here
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+//User Libraries Here
+
+//Global Constants Only, No Global Variables
+//Constants like PI, e, Gravity, Conversions, 2D array size only!
+//Function Prototypes Here
+
+//Program Execution Begins Here
+int main(int argc, char** argv) {
+    //Set Random Number Seed Here
+    
+    //Declare all Variables Here
+    double sum = 0, total;
+    double none, ntwo, nthree, nfour, nfive;
+    
+    cout << "Input 5 numbers." << endl;
+    //Input or initialize values Here
+    cin >> none;
+    cin >> ntwo;
+    cin >> nthree;
+    cin >> nfour;
+    cin >> nfive;
+    //Process/Calculations Here
+    
+    sum = none + ntwo + nthree + nfour + nfive;
+    total = sum / 5;
+    cout << "The average is " << fixed << setprecision(1) << total;
+    //Output Located Here
+
+    //Exit
+    return 0;
+}
