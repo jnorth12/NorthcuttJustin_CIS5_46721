@@ -1,0 +1,89 @@
+/* 
+ * File:   main.cpp
+ * Author: Justin Northcutt
+ * Created on 07/05/2020 @ 5:55 PM
+ * Purpose:  Even, Odd Vectors and Array Columns Even, Odd
+ * Note:  Check out content of Sample conditions in Hacker Rank
+ * Input size of integer array, then array, output columns of Even, Odd
+ * Vectors then Even, Odd 2-D Array
+ */
+
+//System Libraries Here
+#include <iostream>//cin,cout
+#include <vector>  //vectors<>
+#include <iomanip> //Format setw(),right
+using namespace std;
+
+//User Libraries Here
+
+//Global Constants Only, No Global Variables
+//Allowed like PI, e, Gravity, conversions, array dimensions necessary
+const int COLMAX=2;//Only 2 columns needed, even and odd
+
+//Function Prototypes Here
+void read(vector<int> even, vector<int> odd, int numbers)
+{
+    int entry;
+for (int a = 0; a < numbers; a++)  // For loop timed by amount of numbers desired to input
+{
+    cout << "This is the " << a + 1 << " loop." << endl;
+    cin >> entry;  // Input entry assigned to the even vector.
+    if (entry % 2 == 0)  // If the entry is divisible by 2...  
+    {
+        even.insert (even.begin() + a, entry);  // Error here. I really don't understand why.
+        cout << "This is even." << even[a] << endl;
+    }
+    else 
+        odd.insert (odd.begin() + a, entry);  // If not divisible by two, entry is assigned to the odd vector.  
+        cout << "This is odd." << odd[a] << endl;
+    
+    cout << "Loop " << a + 1 << " complete." << endl;
+}
+}
+
+
+void copy(vector<int>, vector<int>,int [][COLMAX]);
+
+
+void prntVec(vector<int> even, vector<int> odd,int numbers)
+{
+    cout << left << setw(10) << "Vector" << setw(10) << "Even" << setw(10) << "Odd" << endl;
+    for (int b = 0; b < numbers; b++)
+    {
+        cout << left << setw(10) << even[b] << setw(10) << odd[b] << "Hi. " << endl;
+    }
+} 
+
+
+void prntAry(const int [][COLMAX],int,int,int);
+
+//Program Execution Begins Here
+int main(int argc, char** argv) {
+    //Declare all Variables Here
+    const int ROW=80;           //No more than 80 rows
+    int array[ROW][COLMAX];     //Really, just an 80x2 array, even vs. odd
+    vector<int> even,odd; //Declare even,odd vectors
+    int numbers;
+    
+    cout << "Input the number of integers to input." << endl;
+    cin >> numbers; // Gets amount of numbers to input.
+    
+    cout << "Input each number." << endl;
+    
+    //Input data and place even in one vector odd in the other
+    read(even,odd,numbers); // Executes read function.
+    
+    //Now output the content of the vectors
+    //          setw(10)
+    prntVec(even,odd,numbers);//Input even, odd vectors with setw(10);
+    
+    //Copy the vectors into the 2 dimensional array
+    copy(even,odd,array);
+    
+    //Now output the content of the array
+    //                              setw(10)
+    prntAry(array,even.size(),odd.size(),10);//Same format as even/odd vectors
+    
+    //Exit
+    return 0;
+}

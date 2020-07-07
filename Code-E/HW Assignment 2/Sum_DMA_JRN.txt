@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+int getData(int &);             //Return the array size and the array from the inputs
+
+int *sumAry(const int *,int);//Return the array with successive sums
+
+void prntAry(const int *,int);//Print the array
+
+int main()
+{
+    int size;
+    int *ary;
+  
+  getData(size);
+  cout << size << ary[1];
+  
+	return 0;
+}
+
+int getData(int size)
+{
+    cin >> size;
+  int ary[size];
+  for (int a = 0; a < size; a++)
+  {
+      cin >> ary[a];
+  }
+}
